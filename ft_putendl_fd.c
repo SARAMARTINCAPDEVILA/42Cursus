@@ -5,11 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: smartin <smartin@student.42barcelo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/29 13:54:25 by smartin           #+#    #+#             */
-/*   Updated: 2022/09/29 14:03:14 by smartin          ###   ########.fr       */
+/*   Created: 2022/10/04 12:04:51 by smartin           #+#    #+#             */
+/*   Updated: 2022/10/04 12:04:58 by smartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include <unistd.h>
 #include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
@@ -21,3 +22,9 @@ void	ft_putendl_fd(char *s, int fd)
 	}
 	write(fd, "\n", 1);
 }
+/*int	main(void)
+{
+	char *s = "adios";
+	ft_putendl_fd(s, fd);
+	return(0);
+}*/

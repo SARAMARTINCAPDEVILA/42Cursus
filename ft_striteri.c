@@ -1,44 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smartin <smartin@student.42barcelo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/29 14:06:11 by smartin           #+#    #+#             */
-/*   Updated: 2022/10/04 15:43:30 by smartin          ###   ########.fr       */
+/*   Created: 2022/10/04 13:30:04 by smartin           #+#    #+#             */
+/*   Updated: 2022/10/04 14:13:07 by smartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	if (n == -2147483648)
+	unsigned int	i;
+
+	i = 0;
+	while (s[i])
 	{
-		write(fd, "-2147483648", 11);
-	}
-	else if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		n = -n;
-		ft_putnbr_fd(n, fd);
-	}
-	else if (n > 9)
-	{
-		ft_putnbr_fd (n / 10, fd);
-		ft_putnbr_fd (n % 10, fd);
-	}
-	else
-	{
-		ft_putchar_fd (n + '0', fd);
+		f(i, &s[i]);
+		i++;
 	}
 }
-/*
-int	main(void)
-
-	int fd = 1;
-	int n = -2147483648;
-	ft_putnbr_fd(n, fd);
+/*int	main(void)
+{
+	char *s = "vermut";
+	unsigned int i = 0;
+	printf("%s\n", ft_striteri(s, ft_toupper(i, s)));	
 	return (0);
 }*/

@@ -6,15 +6,15 @@
 /*   By: smartin <smartin@student.42barcelo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 16:14:31 by smartin           #+#    #+#             */
-/*   Updated: 2022/09/29 16:18:21 by smartin          ###   ########.fr       */
+/*   Updated: 2022/10/04 12:11:05 by smartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libfth.h"
+#include "libft.h"
 
-char		*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-  unsigned int	i;
+	unsigned int	i;
 	char			*stf;
 
 	i = 0;
