@@ -31,9 +31,13 @@ SRC = ft_isalpha.c\
 	  ft_putnbr_fd.c\
 	  ft_itoa.c\
 	  ft_strmapi.c\
-	  ft_striteri.c
+	  ft_striteri.c\
+	  ft_split.c
+
+SRCBONUS = ft_lstnew_bonus.c\
 
 OBJ = ${SRC:.c=.o}
+OBJBONUS = ${SRCBONUS:.c=.o}
 HEADER = libft.h
 NAME = libft.a
 CC = gcc
@@ -47,13 +51,18 @@ CFLAGS = -Wall -Wextra -Werror
 all: ${NAME}
 
 ${NAME}: ${OBJ} ${HEADER}
-	ar rcs ${NAME} ${OBJ}
+		ar rcs ${NAME} ${OBJ}
+
+bonus:	${OBJ} ${OBJBONUS} $(HEADER)
+		ar rcs ${NAME} ${OBJ} ${OBJBONUS}
+		@touch $@
+
 clean:
-	${RM} ${OBJ}
+		${RM} ${OBJ} ${OBJBONUS}
 
 fclean: clean
-	${RM} ${NAME}
+		${RM} ${NAME}
 
-re: fclean all
+re: 	fclean all
 
 .PHONY: all clean fclean re
