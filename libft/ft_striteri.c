@@ -5,13 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: smartin <smartin@student.42barcelo>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/29 16:14:31 by smartin           #+#    #+#             */
-/*   Updated: 2022/09/29 16:18:21 by smartin          ###   ########.fr       */
+/*   Created: 2022/10/04 13:30:04 by smartin           #+#    #+#             */
+/*   Updated: 2022/10/04 14:13:07 by smartin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libfth.h"
+#include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
+	unsigned int	i;
 
+	i = 0;
+	while (s[i])
+	{
+		f(i, &s[i]);
+		i++;
+	}
+}
+/*int	main(void)
+{
+	char *s = "vermut";
+	unsigned int i = 0;
+	printf("%s\n", ft_striteri(s, ft_toupper(i, s)));	
+	return (0);
+}*/
