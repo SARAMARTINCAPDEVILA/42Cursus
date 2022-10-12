@@ -1,4 +1,3 @@
-#Declaro variables
 SRC = ft_isalpha.c\
 	  ft_isdigit.c\
 	  ft_isalnum.c\
@@ -35,6 +34,16 @@ SRC = ft_isalpha.c\
 	  ft_split.c
 
 SRCBONUS = ft_lstnew_bonus.c\
+		   ft_lstadd_front_bonus.c\
+		   ft_lstsize_bonus.c\
+		   ft_lstlast_bonus.c\
+		   ft_lstadd_back_bonus.c\
+		   ft_lstdelone_bonus.c\
+		   ft_lstclear_bonus.c\
+		   ft_lstiter_bonus.c\
+		   ft_lstmap_bonus.c
+
+	
 
 OBJ = ${SRC:.c=.o}
 OBJBONUS = ${SRCBONUS:.c=.o}
@@ -44,10 +53,8 @@ CC = gcc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 
-#Instrucciones compilacion
-.c.o: ${CC} ${CFLAGS} -I libft.h -c $< -o ${<:.c=.o}
+%.c.%o: ${CC} ${CFLAGS} -I libft.h -c $< -o ${<:.c=.o}
 
-#Metodos
 all: ${NAME}
 
 ${NAME}: ${OBJ} ${HEADER}
