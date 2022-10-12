@@ -43,24 +43,26 @@ SRCBONUS = ft_lstnew_bonus.c\
 		   ft_lstiter_bonus.c\
 		   ft_lstmap_bonus.c
 
-	
-
 OBJ = ${SRC:.c=.o}
 OBJBONUS = ${SRCBONUS:.c=.o}
 HEADER = libft.h
 NAME = libft.a
+BONUS = .bonus
 CC = gcc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 
-%.c.%o: ${CC} ${CFLAGS} -I libft.h -c $< -o ${<:.c=.o}
+%.o : %.c 	${HEADER} 
+	${CC} ${CFLAGS} -I libft.h -c  $< -o $@
 
 all: ${NAME}
 
 ${NAME}: ${OBJ} ${HEADER}
 		ar rcs ${NAME} ${OBJ}
 
-bonus:	${OBJ} ${OBJBONUS} $(HEADER)
+bonus:	$(BONUS)
+	
+$(BONUS): ${OBJ} ${OBJBONUS} $(HEADER)
 		ar rcs ${NAME} ${OBJ} ${OBJBONUS}
 		@touch $@
 
@@ -69,6 +71,7 @@ clean:
 
 fclean: clean
 		${RM} ${NAME}
+		${RM} .bonus
 
 re: 	fclean all
 
